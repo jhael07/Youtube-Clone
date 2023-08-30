@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.tags::-webkit-scrollbar {
+  width: 0px !important;
+}
+
+button {
+  @apply select-none !important;
+}
+
+.logo-title {
+  font-family: "Anton", sans-serif;
+}
