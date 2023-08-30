@@ -41,7 +41,7 @@ const Feed = () => {
         <div className="min-h-screen fixed let-0 w-full top-0  bg-[#00000075] flex justify-center items-center z-50"></div>
       )}
       <SideFeed />
-      <div className="w-full lg:w-11/12  ">
+      <div className="w-full lg:w-11/12 sm:ml-2 ">
         <div className=" scroll-smooth sticky top-0 bg-[#0f0f0fcb] backdrop-blur-md ">
           <div
             onClick={() => handleScroll("left")}
