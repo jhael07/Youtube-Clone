@@ -7,7 +7,7 @@ const VideoCard = ({
   videoPublished,
   channelThumbnail,
   thumbnail,
-  richThumbnail,
+//   richThumbnail,
 }) => {
   const [previewVideo, setPreviewVideo] = useState(false);
   return (
@@ -20,7 +20,7 @@ const VideoCard = ({
         onMouseLeave={() => setPreviewVideo((prev) => !prev)}
       >
         <img
-          src={previewVideo ? richThumbnail : thumbnail}
+          src={thumbnail}
           className={`${
             previewVideo ? "" : "rounded-lg"
           } object-fit h-full w-96`}

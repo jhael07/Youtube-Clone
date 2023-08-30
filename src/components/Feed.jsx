@@ -36,7 +36,7 @@ const Feed = () => {
 
   return (
     <div className="flex w-full">
-      <div className="fixed bottom-0 py-7 px-4 bg-coldGray950 w-full">klk</div>
+      {/* <div className="fixed bottom-0 py-7 px-4 bg-coldGray950 w-full">klk</div>/ */}
       {isLoading && (
         <div className="min-h-screen fixed let-0 w-full top-0  bg-[#00000075] flex justify-center items-center z-50"></div>
       )}
@@ -66,26 +66,27 @@ const Feed = () => {
             className=" justify-center grid grid-cols-1 sm:grid-cols-2 
           lg:grid-cols-3  2xl:grid-cols-4   gap-x-0 gap-y-4 w-full mt-1"
           >
-            {videos?.map((video) => (
-              <VideoCard
-                key={video?.id}
-                channelThumbnail={
-                  (video?.channelThumbnail?.length > 0 &&
-                    video?.channelThumbnail[0]?.url) ||
-                  ""
-                }
-                richThumbnail={
-                  (video?.richThumbnail?.length > 0 &&
-                    video?.richThumbnail[0]?.url) ||
-                  ""
-                }
-                thumbnail={video?.thumbnail[0]?.url}
-                channelName={video?.channelTitle}
-                videoPublished={video?.publishedText}
-                videoTitle={video?.title}
-                videoViews={+video?.viewCount}
-              />
-            ))}
+            {videos?.map(
+              (video) =>
+                video.type === "video" && (
+                  <VideoCard
+                    key={video?.id}
+                    channelThumbnail={
+                      video?.channelThumbnail?.length > 0 &&
+                      video?.channelThumbnail[0]?.url
+                    }
+                    // richThumbnail={
+                    //   video?.richThumbnail?.length > 0 &&
+                    //   video?.richThumbnail[0]?.url
+                    // }
+                    thumbnail={video?.thumbnail[0]?.url}
+                    channelName={video?.channelTitle}
+                    videoPublished={video?.publishedText}
+                    videoTitle={video?.title}
+                    videoViews={+video?.viewCount}
+                  />
+                )
+            )}
           </div>
         </div>
       </div>
