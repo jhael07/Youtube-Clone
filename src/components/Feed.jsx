@@ -45,7 +45,7 @@ const Feed = () => {
       )}
 
       <div className=" w-full flex mx-auto">
-        <div className="w-full sm:w-11/12 sm:ml-12 relative  justify-center ">
+        <div className="w-full sm:w-11/12 sm:ml-12 md:ml-16 relative  justify-center ">
           <Navbar />
           <div className=" scroll-smooth sticky top-12 z-0 bg-coldGray950 backdrop-blur-md ">
             <div
