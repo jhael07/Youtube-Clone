@@ -3,10 +3,9 @@ import React from "react";
 const Tags = ({ setter, selected }) => {
   return (
     <div
-      className="mt-5 flex  gap-3 overflow-x-auto tags scroll-smooth"
+      className="mt-3.5 flex  gap-3 overflow-x-auto tags scroll-smooth"
       id="slider"
     >
-      
       {[
         "All",
         "Javascript",
@@ -27,7 +26,7 @@ const Tags = ({ setter, selected }) => {
           onClick={() => setter(tag)}
           className={`${
             selected === tag ? "bg-gray-200 text-gray-800" : "bg-tundora"
-          } rounded-md  cursor-pointer   py-1.5 px-3.5 outline-none w-fit whitespace-nowrap break-keep h-fit text-sm font-normal scroll-smooth`}
+          } rounded-md    py-1.5 px-3.5 outline-none w-fit whitespace-nowrap break-keep h-fit text-sm font-normal scroll-smooth`}
         >
           <TagButton id={i} title={tag} active={selected} />
         </div>

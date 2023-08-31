@@ -13,7 +13,7 @@ const VideoCard = ({
   return (
     <div className="w-auto px-4 mx-auto cursor-pointer">
       <div
-        className={`h-fit w-96 sm:w-[100%] mx-auto bg-inherit mt-6 ${
+        className={`h-fit w-full mx-auto bg-inherit mt-6 ${
           previewVideo ? "" : "rounded-lg"
         }`}
         onMouseEnter={() => setPreviewVideo((prev) => !prev)}
@@ -23,7 +23,7 @@ const VideoCard = ({
           src={thumbnail}
           className={`${
             previewVideo ? "" : "rounded-lg"
-          } object-fit h-full w-96`}
+          } object-fit h-full w-full`}
         />
       </div>
       <div className="flex gap-3  mt-3 w-fit">
