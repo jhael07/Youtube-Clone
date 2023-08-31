@@ -15,7 +15,7 @@ const Navbar = () => {
       <div className="w-full">
         <SideFeed />
         <div className="w-full  relative flex">
-          <div className=" sm:w-3/12 flex items-center gap-1 text-gray-50 bg-cold950 fixed left-10">
+          <div className=" sm:w-3/12 flex items-center gap-1 text-gray-50 bg-cold950 fixed left-5">
             <MenuComponent handleOpenMenu={handleOpenMenu} />
           </div>  
           <div className="h-12 z-0 ">
@@ -77,7 +77,7 @@ const MenuComponent = ({ handleOpenMenu }) => {
 
 const SideFeed = ({ selectedCategory, setSelectedCategory }) => {
   return (
-    <div className="hidden lg:flex w-16  h-screen fixed left-5 top-12   flex-col gap-2 ">
+    <div className="hidden lg:flex w-16  h-screen fixed left-0 top-12   flex-col gap-2 ">
       {SideFeedArray.map((option) => (
         <button className="hover:bg-coldGray900 px-9  flex flex-col justify-center gap-1 items-center h-20 rounded-md">
           {option.icon}

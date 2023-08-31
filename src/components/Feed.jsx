@@ -44,8 +44,8 @@ const Feed = () => {
         <div className="min-h-screen sticky let-0 w-full top-0  bg-[#00000075] flex justify-center items-center z-50"></div>
       )}
 
-      <div className=" w-[90vw] flex mx-auto">
-        <div className="w-full lg:w-11/12 sm:ml-16 relative  justify-center ">
+      <div className=" w-full flex mx-auto">
+        <div className="w-full sm:w-11/12 sm:ml-12 relative  justify-center ">
           <Navbar />
           <div className=" scroll-smooth sticky top-12 z-0 bg-coldGray950 backdrop-blur-md ">
             <div

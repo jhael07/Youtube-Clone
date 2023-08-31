@@ -12,6 +12,20 @@
 
 .tags::-webkit-scrollbar {
   width: 0px !important;
+  @apply bg-none;
+}
+
+body::-webkit-scrollbar {
+  width: 10px !important;
+  @apply bg-coldGray950;
+}
+
+body::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 rounded;
+}
+
+body{
+  @apply bg-coldGray950
 }
 
 button {
