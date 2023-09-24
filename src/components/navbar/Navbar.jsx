@@ -11,16 +11,14 @@ const Navbar = () => {
   const handleOpenMenu = () => setToggle((prev) => !prev);
 
   return (
-    <div className=" pr-3.5 pt-0.5 flex gap-0 sticky bg-coldGray950 top-0 justify-between pb-1 z-50   ">
+    <div className=" pr-3.5 pt-0.5 flex gap-0 fixed w-full bg-coldGray950 top-0 justify-between pb-1 z-30   ">
       <div className="w-full">
         <SideFeed />
         <div className="w-full  relative flex">
           <div className=" sm:w-3/12 flex items-center gap-1 text-gray-50 bg-cold950 fixed left-5">
             <MenuComponent handleOpenMenu={handleOpenMenu} />
-          </div>  
-          <div className="h-12 z-0 ">
-
           </div>
+          <div className="h-12 z-0 "></div>
           <div className="hidden sm:ml-60 w-8/12 sm:w-6/12 items-center sm:flex justify-center">
             <SearchBar />
           </div>
