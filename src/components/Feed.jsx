@@ -3,7 +3,6 @@ import Tags from "./Tags";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
 import { fetchFromAPI } from "../utils/fetchFromApi";
 import { useState, useEffect } from "react";
-import SectionTitle from "./SectionTitle";
 import VideoCard from "./VideoCard";
 import Navbar from "./navbar/Navbar";
 
@@ -52,7 +51,7 @@ const Feed = () => {
             >
               <AiOutlineLeft className="text-white  text-xl " />
             </div>
-            <div className=" w-full max-w-96   flex  pt-3 items-center m-auto justify-center px-10 scroll-smooth  ">
+            <div className=" w-full max-w-96   flex  pt-2 items-center m-auto justify-center px-10 scroll-smooth  ">
               <Tags setter={setSelectedCategory} selected={selectedCategory} />
             </div>
             <div
@@ -70,25 +69,30 @@ const Feed = () => {
           lg:grid-cols-3  2xl:grid-cols-4   gap-x-0 gap-y-4 w-full mt-1"
             >
               {videos?.data?.map((video) => (
-                <div>
-                  <VideoCard
-                    key={video?.id}
-                    channelThumbnail={
-                      video?.channelThumbnail?.length > 0 &&
-                      video?.channelThumbnail[0]?.url
-                    }
-                    thumbnail={
-                      video?.thumbnail[0]?.url ||
-                      video?.snippet?.thumbnails?.high?.url
-                    }
-                    channelName={
-                      video?.channelTitle || video?.snippet?.channelTitle
-                    }
-                    videoPublished={video?.publishedText}
-                    videoTitle={video?.snippet?.title}
-                    videoViews={+video?.viewCount}
-                  />
-                </div>
+                <>
+                  {video?.type === "video" && (
+                    <div>
+                      {/* {JSON.stringify(video, null, 2)} */}
+                      <VideoCard
+                        key={video?.id}
+                        channelThumbnail={
+                          video?.channelThumbnail?.length > 0 &&
+                          video?.channelThumbnail[0]?.url
+                        }
+                        thumbnail={
+                          video?.thumbnail[0]?.url ||
+                          video?.snippet?.thumbnails?.high?.url
+                        }
+                        channelName={
+                          video?.channelTitle || video?.snippet?.channelTitle
+                        }
+                        videoPublished={video?.publishedText}
+                        videoTitle={video?.title}
+                        videoViews={+video?.viewCount}
+                      />
+                    </div>
+                  )}
+                </>
               ))}
             </div>
           </div>

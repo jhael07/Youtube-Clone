@@ -13,7 +13,7 @@ const SearchBar = () => {
         placeholder="Buscar"
         onFocus={() => setActiveSearch(true)}
         onBlur={() => setActiveSearch(false)}
-        className={`w-[87.7%] bg-inherit border-none h-full pl-11 p-2.5 text-md pb-2.5  rounded-l-full group focus:outline-blue-800 focus:border-none focus:outline-1 outline-none`}
+        className={`w-[87.7%] bg-inherit border-none h-full pl-11 p-2 text-md   rounded-l-full group focus:outline-blue-800 focus:border-none focus:outline-1 outline-none`}
       />
       <div
         className={`${
@@ -23,7 +23,7 @@ const SearchBar = () => {
         <AiOutlineSearch className="text-xl outline-none" />
       </div>
       <div
-        className="bg-zinc-900 hover:cursor-pointer right-0 h-[2.82rem] rounded-r-full  w-[12%] 
+        className="bg-zinc-900 hover:cursor-pointer right-0 h-[2.56rem] rounded-r-full  w-[12%] 
       absolute flex items-center outline outline-coldGray900 outline-[0.01rem] justify-center group-hover:p-10"
         onClick={() => {
           alert("hola");

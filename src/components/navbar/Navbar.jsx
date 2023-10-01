@@ -79,7 +79,7 @@ const SideFeed = ({ selectedCategory, setSelectedCategory }) => {
       {SideFeedArray.map((option) => (
         <button className="hover:bg-coldGray900 px-9  flex flex-col justify-center gap-1 items-center h-20 rounded-md">
           {option.icon}
-          <h5 className="text-xs">{option.label}</h5>
+          <h5 className="text-[0.65rem]">{option.label}</h5>
         </button>
       ))}
     </div>
@@ -89,10 +89,10 @@ const SideFeed = ({ selectedCategory, setSelectedCategory }) => {
 const SideFeedArray = [
   {
     icon: <PiHouseThin className="text-2xl" />,
-    label: "New",
+    label: "Home",
   },
   {
     icon: <MdSubscriptions className="text-2xl" />,
-    label: "Principal",
+    label: "Subscriptions",
   },
 ];
