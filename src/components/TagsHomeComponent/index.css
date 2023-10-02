@@ -1,0 +1,9 @@
+.scrollLeft {
+  @apply bg-gradient-to-r from-coldGray950 to-[#1b1818ac] hover:cursor-pointer 
+    backdrop-blur-lg p-1 2xl:hidden left-2 absolute h-8 w-8 top-[1.4rem];
+}
+
+.scrollRight {
+  @apply bg-gradient-to-l from-coldGray950 to-[#1b1818ac] hover:cursor-pointer  
+    backdrop-blur-sm p-1 absolute 2xl:hidden  h-8 w-8 top-[1.4rem] right-2;
+}

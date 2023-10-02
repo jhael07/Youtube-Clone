@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { AiOutlineLeft, AiOutlineRight } from "react-icons/ai";
-import Tags from "./Tags";
+import Tags from "../Tags";
+import "./index.css";
 
 const TagsHomeComponent = ({ selectedCategory, setSelectedCategory }) => {
   const handleScroll = (position) => {
@@ -11,12 +12,8 @@ const TagsHomeComponent = ({ selectedCategory, setSelectedCategory }) => {
   };
 
   return (
-    <div className=" scroll-smooth sticky top-12 z-0 bg-coldGray950 backdrop-blur-md ">
-      <div
-        onClick={() => handleScroll("left")}
-        className="bg-gradient-to-r from-coldGray950 to-[#1b1818ac] hover:cursor-pointer 
-      backdrop-blur-lg p-1 2xl:hidden left-2 absolute h-8 w-8 top-7 "
-      >
+    <div className=" scroll-smooth sticky top-12 z-0 bg-coldGray950 backdrop-blur-md 2xl:pb-2">
+      <div onClick={() => handleScroll("left")} className={"scrollLeft"}>
         <AiOutlineLeft className="text-white  text-xl " />
       </div>
       <div className=" w-full max-w-96   flex  pt-2 items-center m-auto justify-center px-10 scroll-smooth  ">
@@ -25,8 +22,7 @@ const TagsHomeComponent = ({ selectedCategory, setSelectedCategory }) => {
       <div
         onClick={() => handleScroll("right")}
         id="right"
-        className="bg-gradient-to-l from-coldGray950 to-[#1b1818ac] hover:cursor-pointer  
-      backdrop-blur-sm p-1 absolute 2xl:hidden  h-8 w-8 top-7 right-2"
+        className={"scrollRight"}
       >
         <AiOutlineRight className="text-white text-xl" />
       </div>
