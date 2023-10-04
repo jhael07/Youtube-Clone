@@ -1,29 +1,21 @@
-import React, { useState } from "react";
+/* eslint-disable react/prop-types */
+import { useState } from "react";
 
-const VideoCard = ({
-  videoTitle,
-  channelName,
-  videoViews,
-  videoPublished,
-  channelThumbnail,
-  thumbnail,
-  //   richThumbnail,
-}) => {
+const VideoCard = (props) => {
+  const { videoTitle, channelName, videoViews, videoPublished, channelThumbnail, thumbnail } =
+    props;
+
   const [previewVideo, setPreviewVideo] = useState(false);
   return (
     <div className="w-auto px-4 mx-auto cursor-pointer">
       <div
-        className={`h-fit w-full mx-auto bg-inherit mt-6 ${
-          previewVideo ? "" : "rounded-lg"
-        }`}
+        className={`h-fit w-full mx-auto bg-inherit mt-6 ${previewVideo ? "" : "rounded-lg"}`}
         onMouseEnter={() => setPreviewVideo((prev) => !prev)}
         onMouseLeave={() => setPreviewVideo((prev) => !prev)}
       >
         <img
           src={thumbnail}
-          className={`${
-            previewVideo ? "" : "rounded-lg"
-          } object-fit h-full w-full`}
+          className={`${previewVideo ? "" : "rounded-lg"} object-fit h-full w-full`}
         />
       </div>
       <div className="flex gap-3  mt-3 w-fit">
@@ -32,16 +24,12 @@ const VideoCard = ({
         </div>
         <div className="w-fit pr-1">
           <h2 className="whitespace-break-spaces ">
-            {videoTitle?.length > 67
-              ? videoTitle.substring(0, 67) + "..."
-              : videoTitle}
+            {videoTitle?.length > 67 ? videoTitle.substring(0, 67) + "..." : videoTitle}
           </h2>
           <h6 className="text-sm mt-2  text-gray-400">{channelName}</h6>
           <div className="flex gap-2 mt-[-.4rem]">
             <h6 className="text-sm mt-2 text-gray-400">
-              {videoViews > 1000 &&
-                videoViews < 1_000_000 &&
-                `${videoViews?.toLocaleString()} K `}
+              {videoViews > 1000 && videoViews < 1_000_000 && `${videoViews?.toLocaleString()} K `}
               {videoViews > 1_000_000 && `${videoViews?.toLocaleString()} M `}
               {/* : videoViews?.toLocaleString()}{" "} */}
               Views

@@ -12,7 +12,7 @@ const TagsHomeComponent = ({ selectedCategory, setSelectedCategory }) => {
   };
 
   return (
-    <div className=" scroll-smooth sticky top-12 z-0 bg-coldGray950 backdrop-blur-md 2xl:pb-2">
+    <div className=" mt-10  scroll-smooth sticky top-12 z-0 bg-coldGray950 backdrop-blur-md 2xl:pb-2">
       <div onClick={() => handleScroll("left")} className={"scrollLeft"}>
         <AiOutlineLeft className="text-white  text-xl " />
       </div>
