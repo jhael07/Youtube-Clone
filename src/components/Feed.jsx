@@ -15,7 +15,7 @@ const Feed = ({ children }) => {
       {isLoading && <LoadingScreen />}
       <div className=" w-full flex mx-auto">
         <div className="w-full sm:w-11/12 lg:ml-16 relative justify-center mx-auto ">
-          <Navbar />
+          <Navbar showSideBar={true} />
           <TagsHomeComponent
             selectedCategory={selectedCategory}
             setSelectedCategory={setSelectedCategory}

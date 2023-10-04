@@ -1,6 +1,5 @@
-import React from "react";
 import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Home from "./pages/Home/Home";
+import * as Page from "./pages";
 import ContextProvider from "./context/ContextProvider";
 
 const App = () => {
@@ -9,7 +8,8 @@ const App = () => {
       <ContextProvider>
         <BrowserRouter>
           <Routes>
-            <Route path="/" element={<Home />} />
+            <Route path="/" element={<Page.Home />} />
+            <Route path="/channel/:channelId" element={<Page.Channel />} />
           </Routes>
         </BrowserRouter>
       </ContextProvider>

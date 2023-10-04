@@ -1,7 +1,8 @@
-import VideoCard from "./VideoCard";
+import VideoCard from "./videoCard/VideoCard";
 
 /* eslint-disable react/prop-types */
 const VideosGrid = ({ videos }) => {
+  console.log(videos);
   return (
     <>
       {videos?.data?.map((video, i) => (
@@ -9,6 +10,7 @@ const VideosGrid = ({ videos }) => {
           {video?.type === "video" && (
             <div key={i}>
               <VideoCard
+                channelId={video.channelId}
                 key={video?.id}
                 channelThumbnail={
                   video?.channelThumbnail?.length > 0 && video?.channelThumbnail[0]?.url
