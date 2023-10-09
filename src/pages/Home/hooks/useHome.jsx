@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { fetchVideoResults } from "../../../utils/fetchFromApi";
 import { useEffect } from "react";
 import { context } from "../../../context/ContextProvider";
@@ -15,7 +16,6 @@ export const useHome = () => {
       setIsLoading(false);
     };
     getData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { videos };

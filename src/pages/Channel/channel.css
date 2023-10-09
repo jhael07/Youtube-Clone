@@ -1,0 +1,7 @@
+.banner-container {
+  @apply bg-no-repeat bg-cover h-44 md:h-auto w-full;
+}
+
+.profile-thumbnail {
+  @apply rounded-full h-32 w-32  ml-4 sm:ml-16 mt-4;
+}

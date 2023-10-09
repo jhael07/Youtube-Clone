@@ -1,11 +1,11 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+import { useContext } from "react";
+import { context } from "../context/ContextProvider";
 
 const Tags = ({ setter, selected }) => {
+  const { setSelectedCategory } = useContext(context);
   return (
-    <div
-      className="mt-3.5 flex  gap-3 overflow-x-auto tags scroll-smooth"
-      id="slider"
-    >
+    <div className="mt-3.5 flex  gap-3 overflow-x-auto tags scroll-smooth" id="slider">
       {[
         "All",
         "Javascript",
@@ -23,7 +23,10 @@ const Tags = ({ setter, selected }) => {
       ].map((tag, i) => (
         <div
           key={i}
-          onClick={() => setter(tag)}
+          onClick={() => {
+            setSelectedCategory(tag);
+            setter(tag);
+          }}
           className={`${
             selected === tag ? "bg-gray-200 text-gray-800" : "bg-tundora"
           } rounded-md    py-1.5 px-3.5 outline-none w-fit whitespace-nowrap break-keep h-fit text-sm font-normal scroll-smooth`}
