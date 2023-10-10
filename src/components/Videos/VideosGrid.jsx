@@ -2,7 +2,6 @@ import VideoCard from "./videoCard/VideoCard";
 
 /* eslint-disable react/prop-types */
 const VideosGrid = ({ videos }) => {
-  console.log(videos);
   return (
     <>
       {videos?.data?.map((video, i) => (

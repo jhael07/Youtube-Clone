@@ -9,7 +9,8 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Page.Home />} />
-            <Route path="/channel/:channelId" element={<Page.Channel />} />
+            <Route path="search/channel/:channelId" element={<Page.Channel />} />
+            <Route path="/search" element={<Page.Search />} />
           </Routes>
         </BrowserRouter>
       </ContextProvider>

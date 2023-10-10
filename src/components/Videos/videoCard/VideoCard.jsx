@@ -24,7 +24,10 @@ const VideoCard = (props) => {
     <div className="w-auto px-4 mx-auto cursor-pointer grid">
       <VideoThumbnail thumbnail={thumbnail} />
       <div className="flex gap-3  mt-3 w-fit">
-        <VideoChannelThumbnail channelThumbnail={channelThumbnail} channelId={channelId} />
+        <VideoChannelThumbnail
+          channelThumbnail={channelThumbnail}
+          customChannelUrl={"search/channel/" + channelId}
+        />
         <VideoDetails
           channelName={channelName}
           publishedDate={videoPublished}
