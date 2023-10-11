@@ -63,6 +63,8 @@ const Channel = () => {
                 </div>
               </div>
             </div>
+
+            {/* Divider */}
             <div className="w-11/12 mx-auto  md:mb-4 mt-6 bg-gray-500 h-[0.06rem]"></div>
 
             <div className="sm:flex w-11/12 mx-auto gap-4 ">

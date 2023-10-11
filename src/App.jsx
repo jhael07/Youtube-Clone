@@ -11,6 +11,7 @@ const App = () => {
             <Route path="/" element={<Page.Home />} />
             <Route path="search/channel/:channelId" element={<Page.Channel />} />
             <Route path="/search" element={<Page.Search />} />
+            <Route path="/video/:id" element={<Page.WatchVideo />} />
           </Routes>
         </BrowserRouter>
       </ContextProvider>

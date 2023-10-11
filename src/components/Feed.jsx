@@ -6,7 +6,7 @@ import { useState, useContext } from "react";
 import { LoadingScreen } from "./LoadingScreen";
 import { context } from "../context/ContextProvider";
 
-const Feed = ({ children, showTags = true }) => {
+const Feed = ({ children, showTags = true, sideBar = true }) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const { isLoading } = useContext(context);
 
@@ -15,7 +15,7 @@ const Feed = ({ children, showTags = true }) => {
       {isLoading && <LoadingScreen />}
       <div className=" w-full flex mx-auto">
         <div className="w-full sm:w-11/12 lg:ml-16 relative justify-center mx-auto ">
-          <Navbar showSideBar={true} />
+          <Navbar showSideBar={sideBar} />
           {showTags && (
             <TagsHomeComponent
               selectedCategory={selectedCategory}

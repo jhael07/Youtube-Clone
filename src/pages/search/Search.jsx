@@ -16,15 +16,13 @@ const Search = () => {
     };
     getVideos();
   }, [searchTerm]);
+
   return (
-    <Feed
-      showTags={false}
-      children={
-        <div className=" mt-16 grid gapy-y-10">
-          <VideosSearchResult videos={videos} />
-        </div>
-      }
-    />
+    <Feed showTags={false}>
+      <div className=" mt-16 grid gapy-y-10">
+        <VideosSearchResult videos={videos} w={"w-10/12"} description={true} />
+      </div>
+    </Feed>
   );
 };
 
