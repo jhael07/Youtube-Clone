@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { VideoChannelThumbnail } from "./videoCard/VideoChannelThumbnail";
-import { VideoThumbnail } from "./videoCard/VideoThumbnail";
-import useVideoDetails from "../../hooks/useVideoDetails";
+import { VideoChannelThumbnail } from "../videoCard/VideoChannelThumbnail";
+import { VideoThumbnail } from "../videoCard/VideoThumbnail";
+import useVideoDetails from "../../../hooks/useVideoDetails";
 
 /* eslint-disable react/prop-types */
 const VideosSearchResult = ({ videos, w, description }) => {
@@ -24,7 +24,7 @@ const SearchVideo = ({ video, width, description }) => {
   const { handleVideoTitle } = useVideoDetails();
 
   return (
-    <div className={` ${width} mx-auto gap-4 flex`}>
+    <div className={` ${width} mx-auto gap-4 flex bg-white`}>
       <div className="w-96">
         <VideoThumbnail
           thumbnail={video?.thumbnail[0]?.url}

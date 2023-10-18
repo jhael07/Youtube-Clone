@@ -1,4 +1,4 @@
-import VideoCard from "./videoCard/VideoCard";
+import VideoCard from "../videoCard/VideoCard";
 
 /* eslint-disable react/prop-types */
 const VideosGrid = ({ videos }) => {

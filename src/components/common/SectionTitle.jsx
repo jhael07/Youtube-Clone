@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/prop-types */
 
 const SectionTitle = ({ text }) => {
   const nfasis = text.split(" ")[0];

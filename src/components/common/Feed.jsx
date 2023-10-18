@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react-hooks/exhaustive-deps */
-import TagsHomeComponent from "./TagsHomeComponent/TagsHomeComponent";
-import Navbar from "./navbar/Navbar";
+import TagsHomeComponent from "../TagsHomeComponent/TagsHomeComponent";
+import Navbar from "../navbar/Navbar";
 import { useState, useContext } from "react";
 import { LoadingScreen } from "./LoadingScreen";
-import { context } from "../context/ContextProvider";
+import { context } from "../../context/ContextProvider";
 
 const Feed = ({ children, showTags = true, sideBar = true }) => {
   const [selectedCategory, setSelectedCategory] = useState("All");

@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useContext } from "react";
-import { context } from "../context/ContextProvider";
+import { context } from "../../context/ContextProvider";
 
 const Tags = ({ setter, selected }) => {
   const { setSelectedCategory, selectedCategory } = useContext(context);

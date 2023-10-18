@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { LoadingScreen } from "../../components/LoadingScreen";
+import { LoadingScreen } from "../../components/common/LoadingScreen";
 import { context } from "../../context/ContextProvider";
 import { useContext } from "react";
 import Navbar from "../../components/navbar/Navbar";

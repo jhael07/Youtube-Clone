@@ -1,8 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/no-children-prop */
 
-import Feed from "../../components/Feed";
-import VideosGrid from "../../components/Videos/VideosGrid";
+import Feed from "../../components/common/Feed";
+import VideosGrid from "../../components/Videos/common/VideosGrid";
 import { useHome } from "./hooks/useHome";
 import "./home.css";
 

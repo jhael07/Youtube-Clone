@@ -2,8 +2,8 @@
 import { useContext, useEffect, useState } from "react";
 import { fetchVideoResults } from "../../utils/fetchFromApi";
 import { context } from "../../context/ContextProvider";
-import Feed from "../../components/Feed";
-import VideosSearchResult from "../../components/Videos/VideosSearchResult";
+import Feed from "../../components/common/Feed";
+import VideosSearchResult from "../../components/Videos/search/VideosSearchResult";
 
 const Search = () => {
   const [videos, setVideos] = useState([]);
