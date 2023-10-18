@@ -1,12 +1,25 @@
+import ReactPlayer from "react-player";
 import Feed from "../../components/Feed";
 import { VideoChannelThumbnail } from "../../components/Videos/videoCard/VideoChannelThumbnail";
+import { useParams } from "react-router-dom";
 
 const WatchVideo = () => {
+  const { id } = useParams();
+
   return (
     <Feed showTags={false} sideBar={false}>
       <div className="video-container  w-[100vw] fixed justify-between flex left-0 top-0 mt-16 h-[100vh]  overflow-y-scroll">
-        <div className="bg-black min-w-[70vw] h-auto pr-2 ">
-          <div className="border h-[26rem] w-11/12 mx-auto rounded-lg"></div>
+        <div className=" min-w-[70vw] h-auto pr-2 ">
+          <div className=" h-[36rem] w-11/12 ml-6 mx-auto rounded-xl  mt-2">
+            <ReactPlayer
+              url={`https://www.youtube.com/watch?v=${id}`}
+              playing={true}
+              controls={true}
+              style={{ borderRadius: "100rem !important" }}
+              width={"100%"}
+              height={"100%"}
+            />
+          </div>
           <div className="w-11/12 mx-auto py-5 font-bold text-xl font-sans px-1">
             <div>Walking into KFC until I see a black person</div>
             <div className="flex gap-4  mt-4 relative" onClick={() => {}}>
@@ -35,7 +48,7 @@ const WatchVideo = () => {
             <div className="border w-full p-4 mb-20 ">klk</div>
           </div>
         </div>
-        <div className="bg-white w-full text-black rounded">klk</div>
+        <div className=" w-full text-black rounded">klk</div>
       </div>
     </Feed>
   );

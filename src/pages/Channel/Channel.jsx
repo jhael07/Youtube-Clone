@@ -69,7 +69,10 @@ const Channel = () => {
 
             <div className="sm:flex w-11/12 mx-auto gap-4 ">
               <div className="w-96">
-                <VideoThumbnail thumbnail={data?.data[1].thumbnail[3].url} />
+                <VideoThumbnail
+                  thumbnail={data?.data[1].thumbnail[3].url}
+                  videoId={data?.data[1]?.videoId}
+                />
               </div>
               <div className="mt-4 w-7/12">
                 <h2 className="whitespace-break-spaces ">{data?.data[1].title}</h2>

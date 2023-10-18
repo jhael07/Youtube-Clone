@@ -10,7 +10,8 @@ const VideosGrid = ({ videos }) => {
             <div key={i}>
               <VideoCard
                 channelId={video.channelId}
-                key={video?.id}
+                key={video?.videoId}
+                videoId={video?.videoId}
                 channelThumbnail={
                   video?.channelThumbnail?.length > 0 && video?.channelThumbnail[0]?.url
                 }

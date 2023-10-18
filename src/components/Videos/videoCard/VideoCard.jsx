@@ -13,6 +13,7 @@ const VideoCard = (props) => {
     channelThumbnail,
     thumbnail,
     channelId,
+    videoId,
   } = props;
 
   // prettier-ignore
@@ -21,8 +22,8 @@ const VideoCard = (props) => {
   const MILLIONS_VIEWS = videoViews > 1_000_000 && `${videoViews?.toLocaleString()} M `;
 
   return (
-    <div className="w-auto px-4 mx-auto cursor-pointer grid">
-      <VideoThumbnail thumbnail={thumbnail} />
+    <div className="w-auto px-4 mx-auto cursor-pointer grid ">
+      <VideoThumbnail thumbnail={thumbnail} videoId={videoId} />
       <div className="flex gap-3  mt-3 w-fit">
         <VideoChannelThumbnail
           channelThumbnail={channelThumbnail}

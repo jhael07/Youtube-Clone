@@ -5,9 +5,9 @@ export const VideoThumbnail = ({ thumbnail, videoId }) => {
 
   return (
     <div
-      className={`h-fit w-full mx-auto bg-inherit mt-6 `}
+      className={`h-fit w-full mx-auto bg-inherit mt-6 hover:cursor-pointer `}
       onClick={() => {
-        navigate("search/channel/" + videoId);
+        navigate("/video/" + videoId);
       }}
     >
       <img src={thumbnail} className={`rounded-lg object-fit h-full w-full`} />

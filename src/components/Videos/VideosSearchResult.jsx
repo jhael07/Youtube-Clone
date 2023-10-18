@@ -26,7 +26,12 @@ const SearchVideo = ({ video, width, description }) => {
         <VideoThumbnail thumbnail={video?.thumbnail[0]?.url} videoId={video?.videoId} />
       </div>
       <div className="mt-5 w-7/12">
-        <h2 className="whitespace-break-spaces max-w-xl font-medium">{video?.title}</h2>
+        <Link
+          to={"/video/" + video?.videoId}
+          className="whitespace-break-spaces max-w-xl font-medium hover:cursor-pointer"
+        >
+          {video?.title}
+        </Link>
         <div className="grid gap-2 mt-[.2rem]">
           <div className="flex gap-6">
             <h6 className="text-sm mt-2 text-gray-400">
