@@ -2,15 +2,18 @@ import ReactPlayer from "react-player";
 import Feed from "../../components/Feed";
 import { VideoChannelThumbnail } from "../../components/Videos/videoCard/VideoChannelThumbnail";
 import { useParams } from "react-router-dom";
+import { useContext } from "react";
+import { context } from "../../context/ContextProvider";
 
 const WatchVideo = () => {
   const { id } = useParams();
+  const { watchVideoTitle } = useContext(context);
 
   return (
     <Feed showTags={false} sideBar={false}>
       <div className="video-container  w-[100vw] fixed justify-between flex left-0 top-0 mt-16 h-[100vh]  overflow-y-scroll">
         <div className=" min-w-[70vw] h-auto pr-2 ">
-          <div className=" h-[36rem] w-11/12 ml-6 mx-auto rounded-xl  mt-2">
+          <div className=" h-[30rem] w-11/12 ml-6 mx-auto rounded-xl  mt-2">
             <ReactPlayer
               url={`https://www.youtube.com/watch?v=${id}`}
               playing={true}
@@ -21,7 +24,7 @@ const WatchVideo = () => {
             />
           </div>
           <div className="w-11/12 mx-auto py-5 font-bold text-xl font-sans px-1">
-            <div>Walking into KFC until I see a black person</div>
+            <div>{watchVideoTitle}</div>
             <div className="flex gap-4  mt-4 relative" onClick={() => {}}>
               <VideoChannelThumbnail
                 channelId={"as"}

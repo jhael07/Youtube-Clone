@@ -17,7 +17,6 @@ const Channel = () => {
   const banner = data?.meta?.image?.banner[4]?.url;
   const channelThumbnail = data?.meta?.thumbnail[2]?.url;
 
-  console.log(data);
   const channelDescription =
     data?.meta?.description.length > 70
       ? data?.meta?.description.substring(0, 70) + "..."
@@ -72,6 +71,7 @@ const Channel = () => {
                 <VideoThumbnail
                   thumbnail={data?.data[1].thumbnail[3].url}
                   videoId={data?.data[1]?.videoId}
+                  videoDetails={data?.data[1]}
                 />
               </div>
               <div className="mt-4 w-7/12">

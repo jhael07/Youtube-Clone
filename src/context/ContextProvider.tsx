@@ -1,11 +1,12 @@
 import React, { useState, createContext } from "react";
 
-export const context = createContext({});
+export const context = createContext(null || {});
 
 const ContextProvider = ({ children }) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [isLoading, setIsLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+  const [watchVideoTitle, setWatchVideoTitle] = useState("");
 
   return (
     <context.Provider
@@ -16,6 +17,8 @@ const ContextProvider = ({ children }) => {
         setIsLoading,
         searchTerm,
         setSearchTerm,
+        watchVideoTitle,
+        setWatchVideoTitle,
       }}
     >
       {children}

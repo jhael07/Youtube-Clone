@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { VideoChannelThumbnail } from "./videoCard/VideoChannelThumbnail";
 import { VideoThumbnail } from "./videoCard/VideoThumbnail";
+import useVideoDetails from "../../hooks/useVideoDetails";
 
 /* eslint-disable react/prop-types */
 const VideosSearchResult = ({ videos, w, description }) => {
@@ -20,14 +21,21 @@ const VideosSearchResult = ({ videos, w, description }) => {
 export default VideosSearchResult;
 
 const SearchVideo = ({ video, width, description }) => {
+  const { handleVideoTitle } = useVideoDetails();
+
   return (
     <div className={` ${width} mx-auto gap-4 flex`}>
       <div className="w-96">
-        <VideoThumbnail thumbnail={video?.thumbnail[0]?.url} videoId={video?.videoId} />
+        <VideoThumbnail
+          thumbnail={video?.thumbnail[0]?.url}
+          videoId={video?.videoId}
+          videoDetails={video}
+        />
       </div>
       <div className="mt-5 w-7/12">
         <Link
           to={"/video/" + video?.videoId}
+          onClick={() => handleVideoTitle(video?.title)}
           className="whitespace-break-spaces max-w-xl font-medium hover:cursor-pointer"
         >
           {video?.title}

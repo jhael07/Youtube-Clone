@@ -3,7 +3,7 @@ import { useContext } from "react";
 import { context } from "../context/ContextProvider";
 
 const Tags = ({ setter, selected }) => {
-  const { setSelectedCategory } = useContext(context);
+  const { setSelectedCategory, selectedCategory } = useContext(context);
   return (
     <div className="mt-3.5 flex  gap-3 overflow-x-auto tags scroll-smooth" id="slider">
       {[
@@ -28,7 +28,7 @@ const Tags = ({ setter, selected }) => {
             setter(tag);
           }}
           className={`${
-            selected === tag ? "bg-gray-200 text-gray-800" : "bg-tundora"
+            selectedCategory === tag ? "bg-gray-200 text-gray-800" : "bg-tundora"
           } rounded-md    py-1.5 px-3.5 outline-none w-fit whitespace-nowrap break-keep h-fit text-sm font-normal scroll-smooth`}
         >
           <TagButton id={i} title={tag} active={selected} />

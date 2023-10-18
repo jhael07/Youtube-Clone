@@ -23,7 +23,7 @@ const VideoCard = (props) => {
 
   return (
     <div className="w-auto px-4 mx-auto cursor-pointer grid ">
-      <VideoThumbnail thumbnail={thumbnail} videoId={videoId} />
+      <VideoThumbnail thumbnail={thumbnail} videoId={videoId} videoDetails={props} />
       <div className="flex gap-3  mt-3 w-fit">
         <VideoChannelThumbnail
           channelThumbnail={channelThumbnail}

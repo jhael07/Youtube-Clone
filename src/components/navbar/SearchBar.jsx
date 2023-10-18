@@ -4,7 +4,7 @@ import { context } from "../../context/ContextProvider";
 import { Link } from "react-router-dom";
 const SearchBar = () => {
   const { searchTerm, setSearchTerm } = useContext(context);
-  const [searchInput, setSearchInput] = useState("");
+  const [searchInput, setSearchInput] = useState(searchTerm);
 
   return (
     <div

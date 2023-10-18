@@ -16,7 +16,7 @@ export const useHome = () => {
       setIsLoading(false);
     };
     getData();
-  }, []);
+  }, [selectedCategory]);
 
   return { videos };
 };
