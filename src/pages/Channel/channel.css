@@ -5,3 +5,7 @@
 .profile-thumbnail {
   @apply rounded-full h-32 w-32  ml-4 sm:ml-16 mt-4;
 }
+
+.subcribe-btn {
+  @apply bg-white text-gray-800 px-4 py-2 rounded-3xl lg:mr-20  font-medium cursor-pointer hover:bg-gray-200 transition-all;
+}

@@ -44,3 +44,7 @@ button {
 .logo-title {
   font-family: "Anton", sans-serif;
 }
+
+html {
+  @apply scroll-smooth;
+}
