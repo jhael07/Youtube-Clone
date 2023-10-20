@@ -17,7 +17,8 @@ const WatchVideo = () => {
     };
 
     fetchData();
-  }, []);
+  }, [id]);
+
   useEffect(() => {
     const fetchData = async () => {
       setchannelDetails(await fetchChannelInfo("id=" + videoDetails?.data?.channelId));
@@ -33,7 +34,7 @@ const WatchVideo = () => {
       <div className="video-container  w-[100vw] fixed justify-between flex left-0 top-0 mt-16 h-[100vh]  overflow-y-scroll">
         <div className=" min-w-[70vw] h-auto pr-2 ">
           <VideoPlayer id={id} />
-          <div className="w-11/12 pl-7 py-5 font-bold text-xl font-sans px-1">
+          <div className="w-11/12 pl-7 py-5 font-bold text-xl font-sans px-1 pb-10">
             <div>{data?.title}</div>
             <div className="flex gap-4  mt-4 relative" onClick={() => {}}>
               <VideoChannelThumbnail
@@ -59,22 +60,30 @@ const WatchVideo = () => {
             <div
               className={` ${
                 isOpen ? "h-32" : ""
-              } p-4 pt-6 pb-10 rounded-lg mt-6 bg-[#1c1b1b] hover:shadow-xl 
-              hover:shadow-blue-gray-900/90 mb-20 text-sm text-justify whitespace-pre-line relative  overflow-hidden
+              } p-4 pt-6 rounded-lg mt-6 bg-[#1c1b1b] hover:shadow-xl hover:bg-[#252323] hover:cursor-pointer
+              hover:shadow-blue-gray-900/90 mb-6 text-sm text-justify whitespace-pre-line relative  overflow-hidden
               text-gray-300 font-normal
               `}
             >
+              <div
+                className="h-[90%] overflow-hidden "
+                onClick={() => {
+                  setIsOpen(false);
+                }}
+              >
+                {data?.description}
+              </div>
+
               <button
-                className="absolute left-4 bottom-0 rounded-md pb-2 bg-gradient-t from-slate-300 to-black min-h-2   w-full flex justify-start text-white"
+                className="  rounded-md pb-2  min-h-2   w-full flex justify-start text-white"
                 onClick={() => {
                   setIsOpen((prev) => !prev);
                 }}
               >
                 {!isOpen ? "Mostrar menos" : "...más"}
               </button>
-              {data?.description}
             </div>
-            <div className="border w-full p-4 ">klk</div>
+            <div className="border w-full    mb-10">klk</div>
           </div>
         </div>
         <div className=" w-full text-black rounded">klk</div>

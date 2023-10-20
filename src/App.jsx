@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import * as Page from "./pages";
 import ContextProvider from "./context/ContextProvider";
