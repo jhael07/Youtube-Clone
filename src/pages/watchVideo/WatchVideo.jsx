@@ -3,17 +3,27 @@ import { VideoChannelThumbnail } from "../../components/Videos/videoCard/VideoCh
 import { useParams } from "react-router-dom";
 import VideoPlayer from "./VideoPlayer";
 import { fetchChannelInfo, fetchVideoDetails } from "../../utils/fetchFromApi";
-import { useEffect, useState } from "react";
+import { useEffect, useReducer, useState } from "react";
 
 const WatchVideo = () => {
   const { id } = useParams();
-  const [videoDetails, setVideoDetails] = useState();
   const [channelDetails, setchannelDetails] = useState();
   const [isOpen, setIsOpen] = useState(true);
 
+  const reducer = (state, action) => {
+    switch (action.type) {
+      case "videoDetails":
+        return { videoDetails: action.payload };
+      case "relatedVideos":
+        return { relatedVideos: action.payload };
+    }
+  };
+
+  const [watchVideoState, dispatch] = useReducer(reducer, {});
+
   useEffect(() => {
     const fetchData = async () => {
-      setVideoDetails(await fetchVideoDetails(id));
+      dispatch({ type: "videoDetails", payload: await fetchVideoDetails(id) });
     };
 
     fetchData();
@@ -21,13 +31,17 @@ const WatchVideo = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      setchannelDetails(await fetchChannelInfo("id=" + videoDetails?.data?.channelId));
+      setchannelDetails(
+        await fetchChannelInfo(
+          "id=" + watchVideoState.videoDetails?.data?.channelId
+        )
+      );
     };
 
     fetchData();
-  }, [videoDetails]);
+  }, [watchVideoState.videoDetails]);
 
-  const { data } = videoDetails || {};
+  const { data } = watchVideoState.videoDetails || {};
 
   return (
     <Feed showTags={false} sideBar={false}>

@@ -7,7 +7,10 @@ import { useGetData } from "../../../hooks/getData";
 const useChannel = () => {
   const { channelId } = useParams();
   const { isLoading } = useContext(context);
-  const { data } = useGetData({ getDataFunction: fetchChannelInfo, query: `id=${channelId}` });
+  const { data } = useGetData({
+    getDataFunction: fetchChannelInfo,
+    query: `id=${channelId}`,
+  });
 
   const [videoDescription, setVideoDescription] = useState("");
 
@@ -19,7 +22,9 @@ const useChannel = () => {
       description = data?.meta?.description;
 
     setVideoDescription(
-      descriptionLength > 70 ? description.substring(0, 70) + "..." : description
+      descriptionLength > 70
+        ? description.substring(0, 70) + "..."
+        : description
     );
   }, [data]);
 
