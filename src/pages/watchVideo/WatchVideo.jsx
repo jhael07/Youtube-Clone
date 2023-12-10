@@ -20,6 +20,7 @@ const WatchVideo = () => {
   const [channelDetails, setchannelDetails] = useState();
   const [isOpen, setIsOpen] = useState(true);
   const [relatedVideos, setRelatedVideos] = useState();
+  const [comments, setComments] = useState();
 
   const reducer = (state, action) => {
     switch (action.type) {
@@ -58,17 +59,15 @@ const WatchVideo = () => {
     getRelatedVideosData();
   }, [watchVideoState.videoDetails]);
 
-  const { data } = watchVideoState.videoDetails || {};
-
-  const [comments, setComments] = useState();
-
   useEffect(() => {
     const comments = async () => setComments(await getComments(id));
     comments();
   }, []);
 
+  const { data } = watchVideoState.videoDetails || {};
+
   const videoCommentsCount = comments?.data?.commentsCount;
-  console.log(comments);
+
   return (
     <Feed showTags={false} sideBar={false}>
       <div className="video-container  w-[100vw] fixed justify-between flex left-0 top-0 mt-16 h-[100vh]  overflow-y-scroll">
