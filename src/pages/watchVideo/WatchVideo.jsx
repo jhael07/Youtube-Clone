@@ -4,6 +4,7 @@ import { useParams } from "react-router-dom";
 import VideoPlayer from "./VideoPlayer";
 import { fetchChannelInfo, fetchVideoDetails } from "../../utils/fetchFromApi";
 import { useEffect, useReducer, useState } from "react";
+import PropTypes from "prop-types";
 
 const WatchVideo = () => {
   const { id } = useParams();
@@ -60,13 +61,10 @@ const WatchVideo = () => {
                 }
               />
 
-              <div className="grid relative">
-                <h3 className="text-sm h-fit">{data?.channelTitle}</h3>
-                <h3 className="text-[0.75rem] h-fit absolute top-4 whitespace-nowrap text-gray-400 font-normal">
-                  {channelDetails?.data?.meta?.subscriberCount} Subscribers
-                </h3>
-              </div>
-
+              <ChannelDetails
+                channelTitle={data?.channelTitle}
+                subscriberCount={channelDetails?.data?.meta?.subscriberCount}
+              />
               <div className="bg-white text-sm  text-gray-800 p-2 px-4 absolute right-0 rounded-3xl   font-medium cursor-pointer hover:bg-gray-200 transition-all h-fit">
                 Subscribe
               </div>
@@ -107,3 +105,14 @@ const WatchVideo = () => {
 };
 
 export default WatchVideo;
+
+const ChannelDetails = ({ channelTitle, subscriberCount }) => {
+  return (
+    <div className="grid relative">
+      <h3 className="text-sm h-fit">{channelTitle}</h3>
+      <h3 className="text-[0.75rem] h-fit absolute top-4 whitespace-nowrap text-gray-400 font-normal">
+        {subscriberCount} Subscribers
+      </h3>
+    </div>
+  );
+};
