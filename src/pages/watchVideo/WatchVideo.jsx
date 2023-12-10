@@ -2,14 +2,24 @@ import Feed from "../../components/common/Feed";
 import { VideoChannelThumbnail } from "../../components/Videos/videoCard/VideoChannelThumbnail";
 import { useParams } from "react-router-dom";
 import VideoPlayer from "./VideoPlayer";
-import { fetchChannelInfo, fetchVideoDetails } from "../../utils/fetchFromApi";
+import {
+  fetchChannelInfo,
+  fetchVideoDetails,
+  fetchVideoRelatedVideos,
+  getComments,
+} from "../../utils/fetchFromApi";
+
 import { useEffect, useReducer, useState } from "react";
-import PropTypes from "prop-types";
+import VideoCard from "../../components/Videos/videoCard/VideoCard";
+import "./index.css";
+
+import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
 
 const WatchVideo = () => {
   const { id } = useParams();
   const [channelDetails, setchannelDetails] = useState();
   const [isOpen, setIsOpen] = useState(true);
+  const [relatedVideos, setRelatedVideos] = useState();
 
   const reducer = (state, action) => {
     switch (action.type) {
@@ -42,8 +52,23 @@ const WatchVideo = () => {
     fetchData();
   }, [watchVideoState.videoDetails]);
 
+  useEffect(() => {
+    const getRelatedVideosData = async () =>
+      setRelatedVideos(await fetchVideoRelatedVideos(id));
+    getRelatedVideosData();
+  }, [watchVideoState.videoDetails]);
+
   const { data } = watchVideoState.videoDetails || {};
 
+  const [comments, setComments] = useState();
+
+  useEffect(() => {
+    const comments = async () => setComments(await getComments(id));
+    comments();
+  }, []);
+
+  const videoCommentsCount = comments?.data?.commentsCount;
+  console.log(comments);
   return (
     <Feed showTags={false} sideBar={false}>
       <div className="video-container  w-[100vw] fixed justify-between flex left-0 top-0 mt-16 h-[100vh]  overflow-y-scroll">
@@ -95,10 +120,15 @@ const WatchVideo = () => {
                 {!isOpen ? "Mostrar menos" : "...más"}
               </button>
             </div>
-            <div className="border w-full    mb-10">klk</div>
+            <div className=" w-full mb-10">
+              <h2 className="mb-2">Comments {videoCommentsCount}</h2>
+              <hr className="my-4" />
+
+              <CommentsComponent commentArray={comments?.data?.data} />
+            </div>
           </div>
         </div>
-        <div className=" w-full text-black rounded">klk</div>
+        <RelatedVideos realatedVideos={relatedVideos} />
       </div>
     </Feed>
   );
@@ -114,5 +144,63 @@ const ChannelDetails = ({ channelTitle, subscriberCount }) => {
         {subscriberCount} Subscribers
       </h3>
     </div>
+  );
+};
+
+const RelatedVideos = ({ realatedVideos }) => {
+  const { data: videos } = realatedVideos?.data || {};
+  return (
+    <div className=" w-full text-black rounded min-h-screen">
+      {Array.isArray(videos) &&
+        videos.map((video, i) => {
+          return (
+            <div key={i} className="text-white">
+              <VideoCard
+                channelId={video.channelId}
+                key={video?.videoId}
+                videoId={video?.videoId}
+                channelThumbnail={
+                  video?.authorThumbnail?.length > 0 &&
+                  video?.authorThumbnail[0]?.url
+                }
+                thumbnail={video?.thumbnail[1]?.url}
+                channelName={video?.channelTitle}
+                videoPublished={video?.publishedText}
+                videoTitle={video?.title}
+                videoViews={+video?.viewCount}
+              />
+            </div>
+          );
+        })}
+    </div>
+  );
+};
+
+const CommentsComponent = ({ commentArray }) => {
+  return (
+    <>
+      {commentArray?.map((comments) => {
+        return (
+          <div className="flex gap-2 mb-4" key={comments?.commentId}>
+            <div className=" w-16  rounded-full h-14 overflow-hidden">
+              <img src={comments?.authorProfileImageUrl[2]?.url} alt="" />
+            </div>
+            <div className="w-full p-1">
+              <div className="text-sm font-medium">
+                {comments?.authorDisplayName}
+                <span className="ml-2 text-xs text-gray-400">
+                  {comments?.publishedTimeText}
+                </span>
+              </div>
+              <div className="comment">{comments?.textDisplay}</div>
+              <div className="likes">
+                <AiOutlineLike />
+                <AiOutlineDislike />
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </>
   );
 };

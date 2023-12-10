@@ -1,0 +1,7 @@
+.comment {
+  @apply font-normal text-sm mt-1;
+}
+
+.likes {
+  @apply flex gap-4 mt-2;
+}

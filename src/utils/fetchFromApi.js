@@ -30,6 +30,9 @@ export const fetchVideoDetails = async (videoId) =>
 export const fetchVideoRelatedVideos = async (videoId) =>
   await getVideoInfo("/related?id=", videoId);
 
+export const getComments = async (videoId) =>
+  await getVideoInfo("/comments?id=", videoId);
+
 const getVideoInfo = async (endPoint, videoId) =>
   await axios.get(BASE_URL + endPoint + videoId, {
     headers: {

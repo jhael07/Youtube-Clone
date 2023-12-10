@@ -8,7 +8,12 @@ export const VideoThumbnail = ({ thumbnail, videoId, videoDetails }) => {
   const { setWatchVideoTitle } = useContext(context);
 
   const handleClick = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Optional: for smooth scrolling behavior
+    });
     navigate("/video/" + videoId);
+    window.location.reload();
     setWatchVideoTitle(videoDetails?.videoTitle || videoDetails?.title);
   };
 
