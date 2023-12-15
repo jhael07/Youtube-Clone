@@ -14,10 +14,14 @@ export const VideoThumbnail = ({ thumbnail, videoId, videoDetails }) => {
 
   return (
     <div
-      className={`h-fit w-full mx-auto bg-inherit mt-6 hover:cursor-pointer `}
+      className={`h-full w-full mx-auto bg-inherit mt-6 hover:cursor-pointer `}
       onClick={handleClick}
     >
-      <img src={thumbnail} className={`rounded-lg object-fit h-full w-full`} />
+      <img
+        src={thumbnail}
+        className={`rounded-lg object-fit h-full w-full `}
+        style={{ aspectRatio: "2/1" }}
+      />
     </div>
   );
 };

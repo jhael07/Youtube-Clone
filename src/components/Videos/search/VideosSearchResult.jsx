@@ -24,8 +24,8 @@ const SearchVideo = ({ video, width, description }) => {
   const { handleVideoTitle } = useVideoDetails();
 
   return (
-    <div className={` ${width} mx-auto gap-4 flex`}>
-      <div className="w-96">
+    <div className={` ${width} mx-auto gap-4 flex mt-6`}>
+      <div className="w-96 ">
         <VideoThumbnail
           thumbnail={video?.thumbnail[0]?.url}
           videoId={video?.videoId}

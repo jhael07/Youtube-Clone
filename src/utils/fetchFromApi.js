@@ -30,3 +30,11 @@ export const fetchVideoDetails = async (videoId) =>
       "X-RapidAPI-Host": "youtube-v3-alternative.p.rapidapi.com",
     },
   });
+
+export const fetchRelatedVideos = async (videoId) =>
+  await axios.get(BASE_URL + "/related?id=" + videoId, {
+    headers: {
+      "X-RapidAPI-Key": "413d45fe78mshe7da2066174f654p15a2a3jsne332b879dc2c",
+      "X-RapidAPI-Host": "youtube-v3-alternative.p.rapidapi.com",
+    },
+  });

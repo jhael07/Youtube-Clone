@@ -2,13 +2,14 @@ import Feed from "../../components/common/Feed";
 import { VideoChannelThumbnail } from "../../components/Videos/videoCard/VideoChannelThumbnail";
 import { useParams } from "react-router-dom";
 import VideoPlayer from "./VideoPlayer";
-import { fetchChannelInfo, fetchVideoDetails } from "../../utils/fetchFromApi";
+import { fetchChannelInfo, fetchRelatedVideos, fetchVideoDetails } from "../../utils/fetchFromApi";
 import { useEffect, useState } from "react";
 
 const WatchVideo = () => {
   const { id } = useParams();
   const [videoDetails, setVideoDetails] = useState();
   const [channelDetails, setchannelDetails] = useState();
+  const [relatedVideos, setRelatedVideos] = useState();
   const [isOpen, setIsOpen] = useState(true);
 
   useEffect(() => {
@@ -27,12 +28,21 @@ const WatchVideo = () => {
     fetchData();
   }, [videoDetails]);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const { data } = (await fetchRelatedVideos(id)).data;
+      setRelatedVideos(data);
+    };
+    fetchData();
+  }, [id]);
+
+  console.log(relatedVideos);
   const { data } = videoDetails || {};
 
   return (
     <Feed showTags={false} sideBar={false}>
       <div className="video-container  w-[100vw] fixed justify-between flex left-0 top-0 mt-16 h-[100vh]  overflow-y-scroll">
-        <div className=" min-w-[70vw] h-auto pr-2 ">
+        <div className=" min-w-[68vw] max-w-[68vw] h-auto pr-2 relative ">
           <VideoPlayer id={id} />
           <div className="w-11/12 pl-7 py-5 font-bold text-xl font-sans px-1 pb-10">
             <div>{data?.title}</div>
