@@ -5,3 +5,26 @@
 .likes {
   @apply flex gap-4 mt-2;
 }
+
+.page-structure {
+  @apply w-[100vw] fixed justify-between flex left-0 top-0 mt-16 h-[100vh]  overflow-y-scroll;
+}
+
+.video-section {
+  @apply min-w-[68vw] max-w-[68vw] h-auto pr-2 relative;
+}
+
+.details-comments-structure {
+  @apply w-11/12 pl-7 py-5 font-bold text-xl font-sans px-1 pb-10;
+}
+
+.video-description {
+  @apply p-4 pt-6 rounded-lg mt-6 bg-[#1c1b1b] hover:shadow-xl hover:bg-[#252323] hover:cursor-pointer
+  mb-6 text-sm text-justify whitespace-pre-line relative  overflow-hidden
+  text-gray-300 font-normal;
+}
+
+.subscribe-button {
+  @apply bg-white text-sm text-gray-800 p-2 px-4 absolute right-0 rounded-3xl 
+  font-medium cursor-pointer hover:bg-gray-200 transition-all h-fit;
+}
