@@ -22,7 +22,7 @@ const VideoCard = (props) => {
   const MILLIONS_VIEWS = videoViews > 1_000_000 && `${videoViews?.toLocaleString()} M `;
 
   return (
-    <div className="w-auto  mx-auto cursor-pointer grid ">
+    <div className="w-auto px-4 mx-auto cursor-pointer grid ">
       <VideoThumbnail thumbnail={thumbnail} videoId={videoId} videoDetails={props} />
       <div className="flex gap-3  mt-10 w-fit">
         <VideoChannelThumbnail
