@@ -11,7 +11,7 @@
 }
 
 .video-section {
-  @apply min-w-[68vw] max-w-[68vw] h-auto pr-2 relative;
+  @apply min-w-[68vw] max-w-[68vw] h-auto  relative;
 }
 
 .details-comments-structure {
