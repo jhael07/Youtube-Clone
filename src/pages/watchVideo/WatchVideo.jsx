@@ -1,11 +1,10 @@
+/* eslint-disable react-hooks/exhaustive-deps */
+/* eslint-disable react/prop-types */
 import Feed from "../../components/common/Feed";
 import { VideoChannelThumbnail } from "../../components/Videos/videoCard/VideoChannelThumbnail";
 import { useParams } from "react-router-dom";
 import VideoPlayer from "./VideoPlayer";
-<<<<<<< HEAD
-import { fetchChannelInfo, fetchRelatedVideos, fetchVideoDetails } from "../../utils/fetchFromApi";
-import { useEffect, useState } from "react";
-=======
+
 import {
   fetchChannelInfo,
   fetchVideoDetails,
@@ -18,12 +17,10 @@ import VideoCard from "../../components/Videos/videoCard/VideoCard";
 import "./index.css";
 
 import { AiOutlineLike, AiOutlineDislike } from "react-icons/ai";
->>>>>>> 6f56d0b8820d99765d7bcc01497ce5b0c4575572
 
 const WatchVideo = () => {
   const { id } = useParams();
   const [channelDetails, setchannelDetails] = useState();
-  const [relatedVideos, setRelatedVideos] = useState();
   const [isOpen, setIsOpen] = useState(true);
   const [relatedVideos, setRelatedVideos] = useState();
   const [comments, setComments] = useState();
@@ -50,9 +47,7 @@ const WatchVideo = () => {
   useEffect(() => {
     const fetchData = async () => {
       setchannelDetails(
-        await fetchChannelInfo(
-          "id=" + watchVideoState.videoDetails?.data?.channelId
-        )
+        await fetchChannelInfo("id=" + watchVideoState.videoDetails?.data?.channelId)
       );
     };
 
@@ -60,19 +55,7 @@ const WatchVideo = () => {
   }, [watchVideoState.videoDetails]);
 
   useEffect(() => {
-<<<<<<< HEAD
-    const fetchData = async () => {
-      const { data } = (await fetchRelatedVideos(id)).data;
-      setRelatedVideos(data);
-    };
-    fetchData();
-  }, [id]);
-
-  console.log(relatedVideos);
-  const { data } = videoDetails || {};
-=======
-    const getRelatedVideosData = async () =>
-      setRelatedVideos(await fetchVideoRelatedVideos(id));
+    const getRelatedVideosData = async () => setRelatedVideos(await fetchVideoRelatedVideos(id));
     getRelatedVideosData();
   }, [watchVideoState.videoDetails]);
 
@@ -84,7 +67,6 @@ const WatchVideo = () => {
   const { data } = watchVideoState.videoDetails || {};
 
   const videoCommentsCount = comments?.data?.commentsCount;
->>>>>>> 6f56d0b8820d99765d7bcc01497ce5b0c4575572
 
   return (
     <Feed showTags={false} sideBar={false}>
@@ -177,8 +159,7 @@ const RelatedVideos = ({ realatedVideos }) => {
                 key={video?.videoId}
                 videoId={video?.videoId}
                 channelThumbnail={
-                  video?.authorThumbnail?.length > 0 &&
-                  video?.authorThumbnail[0]?.url
+                  video?.authorThumbnail?.length > 0 && video?.authorThumbnail[0]?.url
                 }
                 thumbnail={video?.thumbnail[1]?.url}
                 channelName={video?.channelTitle}
@@ -205,9 +186,7 @@ const CommentsComponent = ({ commentArray }) => {
             <div className="w-full p-1">
               <div className="text-sm font-medium">
                 {comments?.authorDisplayName}
-                <span className="ml-2 text-xs text-gray-400">
-                  {comments?.publishedTimeText}
-                </span>
+                <span className="ml-2 text-xs text-gray-400">{comments?.publishedTimeText}</span>
               </div>
               <div className="comment">{comments?.textDisplay}</div>
               <div className="likes">
