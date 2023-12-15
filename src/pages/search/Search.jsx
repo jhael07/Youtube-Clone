@@ -11,7 +11,9 @@ const Search = () => {
 
   useEffect(() => {
     const getVideos = async () => {
-      const { data } = await fetchVideoResults(`search?part=snippet&query=${searchTerm}`);
+      const { data } = await fetchVideoResults(
+        `search?part=snippet&query=${searchTerm}`
+      );
       setVideos(data);
     };
     getVideos();

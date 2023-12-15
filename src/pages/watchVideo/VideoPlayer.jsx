@@ -10,10 +10,14 @@ import ReactPlayer from "react-player";
 
 const VideoPlayer = ({ id }) => {
   return (
+<<<<<<< HEAD
     <div
       className=" h-[30rem] w-11/12 ml-6 mx-auto rounded-2xl overflow-hidden mt-2 wrapper"
       id="videoPlayer"
     >
+=======
+    <div className=" h-[30rem] w-11/12 ml-6 mx-auto rounded-2xl overflow-hidden mt-2">
+>>>>>>> 6f56d0b8820d99765d7bcc01497ce5b0c4575572
       <ReactPlayer
         url={`https://www.youtube.com/watch?v=${id}`}
         playing={true}

@@ -13,7 +13,8 @@ const options = {
   },
 };
 
-export const fetchVideoResults = async (query) => await axios.get(`${BASE_URL}/${query}`, options);
+export const fetchVideoResults = async (query) =>
+  await axios.get(`${BASE_URL}/${query}`, options);
 
 export const fetchChannelInfo = async (query) =>
   await axios.get(`${BASE_URL}/channel?${query}`, {
@@ -24,9 +25,18 @@ export const fetchChannelInfo = async (query) =>
   });
 
 export const fetchVideoDetails = async (videoId) =>
-  await axios.get(BASE_URL + "/video?id=" + videoId, {
+  await getVideoInfo("/video?id=", videoId);
+
+export const fetchVideoRelatedVideos = async (videoId) =>
+  await getVideoInfo("/related?id=", videoId);
+
+export const getComments = async (videoId) =>
+  await getVideoInfo("/comments?id=", videoId);
+
+const getVideoInfo = async (endPoint, videoId) =>
+  await axios.get(BASE_URL + endPoint + videoId, {
     headers: {
-      "X-RapidAPI-Key": "413d45fe78mshe7da2066174f654p15a2a3jsne332b879dc2c",
+      "X-RapidAPI-Key": import.meta.env.VITE_RAPID_API_KEY,
       "X-RapidAPI-Host": "youtube-v3-alternative.p.rapidapi.com",
     },
   });
