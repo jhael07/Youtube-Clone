@@ -19,13 +19,18 @@ export const VideoThumbnail = ({ thumbnail, videoId, videoDetails }) => {
 
   return (
     <div
-      className={`h-full w-full mx-auto bg-inherit mt-6 hover:cursor-pointer `}
+      className={`h-8/12 w-full mx-auto bg-inherit mt-6 hover:cursor-pointer `}
       onClick={handleClick}
     >
       {thumbnail ? (
-        <img src={thumbnail} className={`rounded-lg object-fit h-full w-full`} />
+        <img
+          src={thumbnail}
+          className={`rounded-lg object-cover h-full w-full`}
+        />
       ) : (
-        <div className={`rounded-lg object-fit h-48 w-full bg-gray-400`}></div>
+        <div
+          className={`rounded-lg object-cover h-48 w-full bg-gray-400`}
+        ></div>
       )}
     </div>
   );

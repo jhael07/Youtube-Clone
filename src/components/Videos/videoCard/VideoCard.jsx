@@ -19,15 +19,20 @@ const VideoCard = (props) => {
   // prettier-ignore
   const THOUSANDS_VIEWS = videoViews > 1_000 && videoViews < 1_000_000 && `${videoViews?.toLocaleString()} K `;
 
-  const MILLIONS_VIEWS = videoViews > 1_000_000 && `${videoViews?.toLocaleString()} M `;
+  const MILLIONS_VIEWS =
+    videoViews > 1_000_000 && `${videoViews?.toLocaleString()} M `;
 
   return (
-    <div className="w-auto px-4 mx-auto cursor-pointer grid ">
-      <VideoThumbnail thumbnail={thumbnail} videoId={videoId} videoDetails={props} />
-      <div className="flex gap-3  mt-10 w-fit">
+    <div className="w-auto mx-auto cursor-pointer grid">
+      <VideoThumbnail
+        thumbnail={thumbnail}
+        videoId={videoId}
+        videoDetails={props}
+      />
+      <div className="flex gap-3 mt-3 w-fit">
         <VideoChannelThumbnail
           channelThumbnail={channelThumbnail}
-          customChannelUrl={"search/channel/" + channelId}
+          customChannelUrl={"/search/channel/" + channelId}
         />
         <VideoDetails
           channelId={channelId}

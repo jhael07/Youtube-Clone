@@ -5,7 +5,10 @@ const ChannelDetails = ({ data, channelThumbnail, channelDescription }) => {
       <div className="grid place-items-center sm:flex gap-4 mx-auto  max-w-[96rem]  w-full">
         <div className="profile-thumbnail">
           {channelThumbnail ? (
-            <img src={channelThumbnail} className="object-cover w-full h-full rounded-full" />
+            <img
+              src={channelThumbnail}
+              className="object-cover w-full h-full rounded-full"
+            />
           ) : null}
         </div>
 
@@ -14,10 +17,12 @@ const ChannelDetails = ({ data, channelThumbnail, channelDescription }) => {
             {data?.meta?.title}
           </h1>
 
-          <p className="absolute bottom-14 md:ml-3 ml-32 text-sm text-zinc-500 mx-auto ">
+          <p className="md:absolute bottom-14 md:ml-3  text-sm text-zinc-500 mx-auto ">
             {data?.meta?.subscriberCount} subscribers
           </p>
-          <p className="sm:min-w-max mt-10 text-zinc-400 text-sm">{channelDescription}</p>
+          <p className="sm:min-w-max mt-10 text-zinc-400 text-sm">
+            {channelDescription}
+          </p>
         </div>
       </div>
       <div className="grid place-items-center justify-center mt-2 sm:mt-12">

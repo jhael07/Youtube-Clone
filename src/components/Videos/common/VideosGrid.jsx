@@ -5,7 +5,7 @@ const VideosGrid = ({ videos }) => {
   return (
     <>
       {videos?.data?.map((video, i) => (
-        <div key={i}>
+        <div key={i} className="mx-4">
           {video?.type === "video" && (
             <div key={i}>
               <VideoCard
@@ -13,7 +13,8 @@ const VideosGrid = ({ videos }) => {
                 key={video?.videoId}
                 videoId={video?.videoId}
                 channelThumbnail={
-                  video?.channelThumbnail?.length > 0 && video?.channelThumbnail[0]?.url
+                  video?.channelThumbnail?.length > 0 &&
+                  video?.channelThumbnail[0]?.url
                 }
                 thumbnail={video?.thumbnail[0]?.url}
                 channelName={video?.channelTitle}

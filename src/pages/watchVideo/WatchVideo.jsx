@@ -28,7 +28,7 @@ const WatchVideo = () => {
   return (
     <Feed showTags={false} sideBar={false}>
       <div className="video-container page-structure">
-        <div className="video-section ">
+        <div className="video-section">
           <VideoPlayer id={id} />
           <div className="details-comments-structure">
             <div>

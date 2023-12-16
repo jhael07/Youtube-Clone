@@ -7,7 +7,7 @@
 }
 
 .page-structure {
-  @apply w-[100vw] fixed justify-between flex left-0 top-0 mt-16 h-[100vh]  overflow-y-scroll;
+  @apply w-[100vw] fixed  flex left-0 top-0 mt-16 h-[100vh]  overflow-y-scroll;
 }
 
 .video-section {
