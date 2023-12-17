@@ -14,7 +14,8 @@ export const RelatedVideos = ({ realatedVideos }) => {
                 key={video?.videoId}
                 videoId={video?.videoId}
                 channelThumbnail={
-                  video?.authorThumbnail?.length > 0 && video?.authorThumbnail[0]?.url
+                  video?.authorThumbnail?.length > 0 &&
+                  video?.authorThumbnail[0]?.url
                 }
                 thumbnail={video?.thumbnail[1]?.url}
                 channelName={video?.channelTitle}

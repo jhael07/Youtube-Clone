@@ -27,7 +27,7 @@ const WatchVideo = () => {
 
   return (
     <Feed showTags={false} sideBar={false}>
-      <div className="video-container page-structure">
+      <div className="video-container page-structure ">
         <div className="video-section">
           <VideoPlayer id={id} />
           <div className="details-comments-structure">
@@ -51,7 +51,9 @@ const WatchVideo = () => {
             <CommentsComponent commentArray={comments?.data?.data} />
           </div>
         </div>
-        <RelatedVideos realatedVideos={relatedVideos} />
+        <div className="hidden md:block">
+          <RelatedVideos realatedVideos={relatedVideos} />
+        </div>
       </div>
     </Feed>
   );
