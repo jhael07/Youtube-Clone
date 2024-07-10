@@ -1,4 +1,4 @@
-![image](https://github.com/jhael07/Youtube-Clone/assets/109443811/9805408c-5c78-471f-9198-37175f3d93ff)# YouTube Clone Preview
+![image](https://github.com/jhael07/Youtube-Clone/assets/109443811/9805408c-5c78-471f-9198-37175f3d93ff)
 
 Check out the live preview of the YouTube clone: [YouTube Clone](https://youtube-clone-jhael07.vercel.app/)
 
