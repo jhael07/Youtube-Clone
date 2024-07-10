@@ -1,4 +1,4 @@
-# YouTube Clone Preview
+![image](https://github.com/jhael07/Youtube-Clone/assets/109443811/9805408c-5c78-471f-9198-37175f3d93ff)# YouTube Clone Preview
 
 Check out the live preview of the YouTube clone: [YouTube Clone](https://youtube-clone-jhael07.vercel.app/)
 
@@ -14,7 +14,8 @@ This project is a simplified YouTube clone built with Vite, using the RapidAPI Y
 
 ## Preview
 
-![YouTube Clone Preview](/images/youtube-clone-preview.png)
+![YouTube Clone Preview](![image](https://github.com/jhael07/Youtube-Clone/assets/109443811/08201929-a533-48d2-8901-413c1ee42882)
+)
 
 ## Getting Started
 
