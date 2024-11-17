@@ -12,11 +12,6 @@ This project is a simplified YouTube clone built with Vite, using the RapidAPI Y
 - **Inline Tailwind CSS**: Directly integrate Tailwind CSS for responsive styling.
 - **React Router 6**: Dynamic and declarative routing for a seamless user experience.
 
-## Preview
-
-![YouTube Clone Preview](![image](https://github.com/jhael07/Youtube-Clone/assets/109443811/08201929-a533-48d2-8901-413c1ee42882)
-)
-
 ## Getting Started
 
 1. Clone the repository:
